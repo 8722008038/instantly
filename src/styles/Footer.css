@@ -1,0 +1,91 @@
+.site-footer {
+  background-color: #111827; /* dark gray to contrast CTA */
+  color: #d1d5db; /* light gray text */
+  padding: 3rem 1.5rem;
+  margin-top: 3rem;
+}
+
+.footer-container {
+  max-width: 80rem; /* same as CTA max-width */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.footer-brand h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: white;
+}
+
+.footer-brand h2 span {
+  color: #6366f1; /* indigo accent */
+}
+
+.footer-brand p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.footer-links h4,
+.footer-social h4 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #6366f1; /* indigo accent */
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  font-size: 1.25rem;
+  color: #d1d5db;
+  transition: color 0.2s ease;
+}
+
+.social-icons a:hover {
+  color: #6366f1;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #374151;
+  padding-top: 1rem;
+  color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}

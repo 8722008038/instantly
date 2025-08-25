@@ -1,0 +1,54 @@
+.unibox-content {
+  padding: 5rem 1rem; /* py-20 px-4 */
+  background-image: url(../assets/Mask_group.svg);
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  max-width: 80rem; /* max-w-7xl */
+  margin: 2rem auto 0; /* mt-8 mx-auto */
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  border-radius: 16px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 860px;
+  margin-bottom: 100px;
+  padding-top: 80px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.unibox-content h2 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+.bgtext {
+  background: linear-gradient(90deg, #ff6a00, #ff3c7c, #0070f3, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.unibox-content p {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  max-width: 756px;
+  color: white;
+  text-align: center;
+}
+
+.unibox-content img {
+  width: 76%;
+  margin-top: 0;
+  position: relative;
+  bottom: -130px;
+}

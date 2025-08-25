@@ -1,0 +1,123 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #fdfdfd, #f9fbff);
+  /* flex-wrap: wrap; */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 650px;
+  animation: fadeInLeft 1s ease-in-out;
+  height: 20;
+}
+
+/* 🌟 BIG colorful heading */
+.hero h1 {
+  font-size: 4.5rem; /* much larger */
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+
+  /* vibrant rainbow gradient */
+  background: linear-gradient(90deg, #ff6a00, #ff3c7c, #0070f3, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* glowing effect */
+  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ✨ Subtext under heading */
+.hero p {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+/* 🚀 Call-to-action button */
+.cta-primary {
+  padding: 1rem 2.5rem;
+  background: linear-gradient(90deg, #0070f3, #00c6ff);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 112, 243, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta-primary:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(0, 112, 243, 0.45);
+}
+
+/* 🖼️ Right side image */
+.hero-image {
+  flex: 1;
+  min-width: 480px;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  animation: fadeInRight 1s ease-in-out;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+/* 🎬 Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+  .hero p {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}

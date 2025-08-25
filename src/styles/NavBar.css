@@ -1,0 +1,75 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  background: #ffffff; /* white background */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo */
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e88e5; /* blue accent */
+  letter-spacing: 1px;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  font-size: 1.1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Underline hover effect */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: #1e88e5; /* blue underline */
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #1e88e5;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Call-to-action Button */
+.cta-button {
+  padding: 0.7rem 1.6rem;
+  background: #1e88e5;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #1565c0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 136, 229, 0.4);
+}

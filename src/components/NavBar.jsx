@@ -3,7 +3,7 @@ import Lofo from "../assets/instantlyy.svg";
 const NavBar = () => (
   <nav className="navbar">
     <div className="logo">
-      <img clasName="h- w-auto" src={Lofo} />
+      <img className="h- w-auto" src={Lofo} />
     </div>
     <ul className="nav-links">
       <li>

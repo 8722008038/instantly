@@ -1,51 +1,42 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import NavBar from "./components/NavBar";
-import Hero from "./components/Hero";
-import Features from "./components/Features";
-import Unibox from "./components/Unibox";
-import CalltoAction from "./components/CalltoAction";
-import Testimonials from "./components/Testimonials";
-import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PrivateRoute from "./components/PrivateRoute";
-import AuthProvider from "./context/AuthContext";
+import AuthProvider, { AuthContext } from "./context/AuthContext";
+import Dashboard from "./Dashboard";
+import { useContext } from "react";
 import "./App.css";
 
-const FilesPage = () => (
-  <h2 className="text-center mt-10">Welcome to Files Dashboard</h2>
-);
+// This component decides where "/" should go
+const RootRedirect = () => {
+  const { user } = useContext(AuthContext);
+  return user ? <Navigate to="/dashboard" /> : <Navigate to="/login" />;
+};
 
 const App = () => (
   <Router>
     <AuthProvider>
       <NavBar />
       <Routes>
-        {/* Landing page */}
-        <Route
-          path="/"
-          element={
-            <>
-              <Hero />
-              <Features />
-              <Unibox />
-              <Testimonials />
-              <CalltoAction />
-              <Footer />
-            </>
-          }
-        />
+        {/* Root route decides based on login */}
+        <Route path="/" element={<RootRedirect />} />
 
         {/* Auth pages */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Protected route */}
+        {/* Protected Dashboard */}
         <Route
-          path="/files"
+          path="/dashboard"
           element={
             <PrivateRoute>
-              <FilesPage />
+              <Dashboard />
             </PrivateRoute>
           }
         />

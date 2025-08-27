@@ -10,11 +10,18 @@ const AuthProvider = ({ children }) => {
 
   // Load tokens/user from localStorage (if available) on first render
   useEffect(() => {
-    const savedUser = localStorage.getItem("user");
-    const savedToken = localStorage.getItem("accessToken");
-    if (savedUser && savedToken) {
-      setUser(JSON.parse(savedUser));
-      setAccessToken(savedToken);
+    try {
+      const savedUser = localStorage.getItem("user");
+      const savedToken = localStorage.getItem("accessToken");
+
+      if (savedUser && savedUser !== "undefined" && savedToken) {
+        setUser(JSON.parse(savedUser));
+        setAccessToken(savedToken);
+      }
+    } catch (err) {
+      console.error("Failed to parse user from localStorage:", err);
+      localStorage.removeItem("user"); // clean bad data
+      localStorage.removeItem("accessToken");
     }
   }, []);
 

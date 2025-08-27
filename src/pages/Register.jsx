@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import authService from "../services/authService";
 import { useNavigate } from "react-router-dom";
+import "./register.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -14,6 +15,11 @@ const Register = () => {
     setError("");
     setSuccess("");
 
+    if (!username.trim() || !password.trim()) {
+      setError("Username and password are required.");
+      return;
+    }
+
     try {
       const res = await authService.register({ username, password });
       setSuccess(res.message || "Registration successful!");
@@ -24,36 +30,43 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded shadow-md w-96"
-      >
-        <h2 className="text-2xl font-bold mb-4">Register</h2>
+    <div className="register-container">
+      <form onSubmit={handleSubmit} className="register-form">
+        <h2 className="register-title">Create an Account</h2>
 
-        {error && <p className="text-red-500">{error}</p>}
-        {success && <p className="text-green-500">{success}</p>}
+        {error && <p className="register-error">{error}</p>}
+        {success && <p className="register-success">{success}</p>}
 
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="w-full p-2 border rounded mb-3"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 border rounded mb-3"
-        />
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-        >
+        <div className="form-group">
+          <label className="form-label">Username</label>
+          <input
+            type="text"
+            placeholder="Enter your username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <label className="form-label">Password</label>
+          <input
+            type="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="form-input"
+          />
+        </div>
+
+        <button type="submit" className="register-button">
           Register
         </button>
+
+        <p className="register-footer">
+          Already have an account?{" "}
+          <span onClick={() => navigate("/login")}>Login</span>
+        </p>
       </form>
     </div>
   );
